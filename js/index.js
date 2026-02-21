@@ -16,7 +16,7 @@ const titlefield = $("#title"),
   usernamefield.focus()
 
   usernamefield.on("keydown",function(e){
-    console.log(e)
+    //console.log(e)
     if(e.keyCode==13){
         passwordfield.focus()
     }
@@ -54,7 +54,7 @@ signinbutton.removeClass("disabled")
             {
                 loginuser:true,
                 username,
-                password
+                pwd
             },
             (data)=>{
                 if(isJSON(data)){

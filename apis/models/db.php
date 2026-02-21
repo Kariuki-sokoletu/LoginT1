@@ -24,7 +24,7 @@ class db{
         $this->charset="utf8mb4";
         $this->username="root";
         $this->pwd="";
-        $this->dbname='logindb';
+        $this->dbname='schoolerp1';
 
         try {
             $dsn="mysql:host=".$this->servername.";dbname=".$this->dbname.";charset=".$this->charset;

@@ -1,0 +1,169 @@
+:root {
+  --sb: 280px;
+  --sbC: 78px;
+  --top: 60px;
+}
+
+body {
+  overflow-x: hidden;
+  background: #f6f7fb;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  z-index: 1025;
+}
+.overlay.show {
+  display: block;
+}
+
+.sidebar {
+  width: var(--sb);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1030;
+  background: #0f1b33;
+  color: #fff;
+  transition: width 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar.collapsed {
+  width: var(--sbC);
+}
+.sb-top {
+  height: var(--top);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 10px;
+}
+.brand {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(77, 163, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+.brand-text .t1 {
+  font-weight: 700;
+  line-height: 1.05;
+}
+.brand-text .t2 {
+  font-size: 12px;
+  opacity: 0.75;
+}
+.sidebar.collapsed .brand-text {
+  display: none;
+}
+.sb-toggle {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+}
+
+.sb-scroll {
+  padding: 10px;
+  overflow: auto;
+  flex: 1;
+}
+.sb-section {
+  font-size: 12px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  padding: 10px 10px 6px;
+  letter-spacing: 0.08em;
+}
+
+.sb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+}
+.sb-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: #fff;
+}
+.sb-item.active {
+  background: rgba(77, 163, 255, 0.2);
+}
+.sb-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+.sidebar.collapsed .sb-label {
+  display: none;
+}
+
+.main {
+  margin-left: var(--sb);
+  transition: margin-left 0.25s ease;
+  min-height: 100vh;
+}
+.main.collapsed {
+  margin-left: var(--sbC);
+}
+.topbar {
+  height: var(--top);
+  background: #fff;
+  border-bottom: 1px solid #e6e8ef;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+.content {
+  padding: 16px;
+}
+
+.kv {
+  border: 1px solid #e6e8ef;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.kv small {
+  color: #6b7280;
+  display: block;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    width: var(--sb);
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+  .main,
+  .main.collapsed {
+    margin-left: 0;
+  }
+}
